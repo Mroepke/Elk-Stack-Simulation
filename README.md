@@ -32,13 +32,13 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| Web-1    | backend  | 10.0.0.5   | Linux            |
-| Web-2    | backend  | 10.0.0.7   | Linux            |
-| Web-3    | backend  | 10.0.0.8   | Linux            |
-
+| Name       | Function | IP Address | Operating System |
+|------------|----------|------------|------------------|
+| Jump Box   | Gateway  | 10.0.0.1   | Linux            |
+| Web-1      | backend  | 10.0.0.5   | Linux            |
+| Web-2      | backend  | 10.0.0.7   | Linux            |
+| Web-3      | backend  | 10.0.0.8   | Linux            |
+| Elk-server |          | 10.1.0.4   | Linux            |
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
@@ -52,12 +52,13 @@ Machines within the network can only be accessed by SSH.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes                 | 70.179.160.192       |
-| Web-1    | No                  | 168.62.163.62        |
-| Web-2    | NO                  | 168.62.163.62        |
-| Web-3    | NO                  | 168.62.163.62        |
+| Name       | Publicly Accessible | Allowed IP Addresses |
+|------------|---------------------|----------------------|
+| Jump Box   | Yes                 | 70.179.160.192       |
+| Web-1      | No                  | 168.62.163.62        |
+| Web-2      | No                  | 168.62.163.62        |
+| Web-3      | No                  | 168.62.163.62        |
+| Elk-server | No                  | 168.62.163.62        |
 
 ### Elk Configuration
 
@@ -66,11 +67,11 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- SSH into your jump box using ssh username@jump.box.ip
-- check your ansible container using sudo docker ps
-- Locate the container name sudo docker container list -a
-- start up the container using sudo docker start <container_name>
-- attach to the container using sudo docker attach <container_name>
+- 
+- 
+- 
+- 
+- 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -78,9 +79,9 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- 10.0.0.5
-- 10.0.0.7
-- 10.0.0.8
+- Web-1 10.0.0.5
+- Web-2 10.0.0.7
+- Web-3 10.0.0.8
 
 We have installed the following Beats on these machines:
 - Filebeat
@@ -94,9 +95,9 @@ _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provi
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the install-elk.yml file to /etc/ansible/.
+- Update the hosts file to include the IP for your Elk-server 10.1.0.4
+- Run the playbook, and navigate to elk-docker container to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_

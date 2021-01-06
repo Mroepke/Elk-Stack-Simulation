@@ -32,13 +32,13 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name       | Function | IP Address | Operating System |
-|------------|----------|------------|------------------|
-| Jump Box   | Gateway  | 10.0.0.1   | Linux            |
-| Web-1      | backend  | 10.0.0.5   | Linux            |
-| Web-2      | backend  | 10.0.0.7   | Linux            |
-| Web-3      | backend  | 10.0.0.8   | Linux            |
-| Elk-server |          | 10.1.0.4   | Linux            |
+| Name       | Function   | IP Address | Operating System |
+|------------|------------|------------|------------------|
+| Jump Box   | Gateway    | 10.0.0.1   | Linux            |
+| Web-1      | backend    | 10.0.0.5   | Linux            |
+| Web-2      | backend    | 10.0.0.7   | Linux            |
+| Web-3      | backend    | 10.0.0.8   | Linux            |
+| Elk-server | Monitoring | 10.1.0.4   | Linux            |
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
@@ -63,17 +63,22 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- Performing these tasks on multiple servers multiple times is taxing and time consuming. Having the advantage of being able to automate these processes inhances a cloud developers configuration mangement skills allowing them to handle more servers and applications while addressing these complicated tasks.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - Install docker.io
 - Install pip3
 - Install Docker python module
-- Increase more memory
+- Increase memory
 - Download and launch a docker elk container
 
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+The following displays the result of running `docker ps` after successfully configuring the ELK instance.
+
+
+sysadmin@elk:~$ sudo docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                                              NAMES
+842caa422ed8        sebp/elk            "/usr/local/bin/star…"   3 hours ago         Up 3 hours          0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   elk
+sysadmin@elk:~$
 
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](images/docker_ps_output.png)
@@ -89,8 +94,8 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- 
-_TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat collects data pertaining to file systems, such as /etc/passwd, or syslog.
+- Metricbeat collects data that pertains to machine metrics such as CPU usage, and machine uptime. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -99,10 +104,5 @@ SSH into the control node and follow the steps below:
 - Copy the install-elk.yml file to /etc/ansible/.
 - Update the hosts file to include the IP for your Elk-server 10.1.0.4
 - Run the playbook, and navigate to elk-docker container to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- run this command <<ansible-playbook /etc/ansible/install-elk.yml>> to download the playbook
+- verify you can load the ELK stack server from your browser at http://40.77.25.211:5601/app/kibana.

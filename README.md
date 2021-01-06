@@ -58,7 +58,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-1      | No                  | 168.62.163.62        |
 | Web-2      | No                  | 168.62.163.62        |
 | Web-3      | No                  | 168.62.163.62        |
-| Elk-server | Yes                 | 70.179.160.192       |
+| Elk-server | Yes                 | 40.77.25.211         |
 
 ### Elk Configuration
 

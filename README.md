@@ -74,14 +74,7 @@ The playbook implements the following tasks:
 
 The following displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-
-sysadmin@elk:~$ sudo docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                                              NAMES
-842caa422ed8        sebp/elk            "/usr/local/bin/star…"   3 hours ago         Up 3 hours          0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   elk
-sysadmin@elk:~$
-
-
-![TODO: Update the path with the name of your screenshot of docker ps output](images/docker_ps_output.png)
+![docker ps output](images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:

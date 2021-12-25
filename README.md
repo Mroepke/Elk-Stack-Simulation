@@ -54,7 +54,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name       | Publicly Accessible | Allowed IP Addresses |
 |------------|---------------------|----------------------|
-| Jump Box   | Yes                 | 70.179.160.192       |
+| Jump Box   | Yes                 |   [your IP address]  |
 | Web-1      | No                  | 168.62.163.62        |
 | Web-2      | No                  | 168.62.163.62        |
 | Web-3      | No                  | 168.62.163.62        |
